@@ -1,11 +1,11 @@
 <section class="content-header">
     <h1>
         Usuários
-        <small>- <?= Configure::read('SITE_NAME'); ?></small>
+        <small>- <?= Configure::read('APP_NAME'); ?></small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="<?= Configure::read('ADMIN_URL');?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Categorias</li>
+        <li class="active">Usuários</li>
     </ol>
 </section>
 
@@ -54,7 +54,7 @@
                                 <td class="text-center">
                                     <?= $this->Html->link(__('Detalhes'), ['action' => 'detalhes', $user->id], ['class' => 'btn btn-info btn-flat btn-xs']) ?>
                                     <?= $this->Html->link(__('Editar'), ['action' => 'editar', $user->id], ['class' => 'btn btn-primary btn-flat btn-xs']) ?>
-                                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'deletar', $user->id],
+                                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $user->id],
                                         ['confirm' => __('Tem certeza ue quer apagar este registro?', $user->id), 'class' => 'btn btn-sm btn-danger btn-flat btn-xs']); ?>
                                 </td>
                             </tr>

@@ -2,11 +2,11 @@
 <section class="content-header">
     <h1>
         Detalhes do Usuário
-        <small>-<?= Configure::read('SITE_NAME'); ?></small>
+        <small>-<?= Configure::read('APP_NAME'); ?></small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="<?= Configure::read('SITE_URL');?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="<?= Configure::read('SITE_URL');?>/users"><i class="fa fa-dashboard"></i> Usuário</a></li>
+        <li><a href="<?= Configure::read('ADMIN_URL');?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?= Configure::read('ADMIN_URL');?>/users"><i class="fa fa-dashboard"></i> Usuário</a></li>
         <li class="active">Detalhes do Usuário</li>
     </ol>
 </section>
@@ -29,11 +29,11 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><?= $this->Html->link(__('Editar'), ['action' => 'editar', $user->id]) ?> </li>
-                            <li><?= $this->Form->postLink(__('Deletar'), ['action' => 'deletar', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
+                            <li><?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
                         </ul>
                     </div><!-- btn-group-->
-                    <a href="<?= Configure::read('SITE_URL');?>/users" class="btn btn-app btn-flat"><i class="fa fa-folder"></i> Usuários</a>
-                    <a href="<?= Configure::read('SITE_URL');?>/users/adicionar" class="btn btn-app btn-flat"><i class="fa fa-plus-circle"></i> Adicionar</a>
+                    <a href="<?= Configure::read('ADMIN_URL');?>/users" class="btn btn-app btn-flat"><i class="fa fa-folder"></i> Usuários</a>
+                    <a href="<?= Configure::read('ADMIN_URL');?>/users/adicionar" class="btn btn-app btn-flat"><i class="fa fa-plus-circle"></i> Adicionar</a>
                 </div><!-- /.box-body -->
             </div><!-- /.box /.box-info -->
         </div><!-- col-md-3 -->
@@ -42,7 +42,7 @@
         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Detalhes do Serviço</h3>
+                    <h3 class="box-title">Detalhes do Usuário</h3>
                     <div class="box-tools">
                         <div class="input-group" style="width: 150px;">
                             <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Pesquisar" />
@@ -68,8 +68,8 @@
                                 </tr>
 
                                 <tr>
-                                    <td><strong><?= __('Role') ?></strong></td>
-                                    <td><?= h($user->role) ?></td>
+                                    <td><strong><?= __('Perfil') ?></strong></td>
+                                    <td><?= h($user->perfil) ?></td>
                                 </tr>
 
                             </tbody>

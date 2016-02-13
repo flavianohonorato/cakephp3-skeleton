@@ -1,7 +1,7 @@
 <section class="content-header">
     <h1>
         Adicionar Usuário
-        <small>- <?= Configure::read('SITE_NAME'); ?></small>
+        <small>- <?= Configure::read('APP_NAME'); ?></small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="<?= Configure::read('ADMIN_URL');?>"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -57,8 +57,8 @@
 
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
-                                <?= $this->Form->input('password', array('class' => 'form-control', 'label' => 'Password')); ?>
-                            </div><!-- .form-group -->                            
+                                <?= $this->Form->input('password', array('class' => 'form-control', 'label' => 'Senha')); ?>
+                            </div><!-- .form-group -->
                         </div>
 
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
@@ -69,19 +69,13 @@
                                     'empty' => 'Perfil de usuário',
                                     'options' => array(
                                         'admin' => 'Admistrador',
-                                        'editor' => 'Editor',
-                                        'author' => 'Autor'
+                                        'user' => 'User'
                                     ),
                                     'type' => 'select'
                                 )); ?>
                             </div><!-- .form-group -->
                         </div>
 
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <div class="form-group">
-                                <?= $this->Form->input('foto_file', array('type' => 'file', 'label' => 'Avatar')); ?>
-                            </div><!-- .form-group -->
-                        </div>
 
                     </div>
 
