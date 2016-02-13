@@ -210,3 +210,6 @@ Type::build('date')
 Type::build('datetime')
     ->useImmutable()
     ->useLocaleParser();
+
+// include custom configs
+include("custom_config.php");
