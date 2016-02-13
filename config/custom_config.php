@@ -3,7 +3,7 @@
 class_alias('Cake\Core\Configure', 'Configure');
 
 //CUSTOM VALUES
-Configure::write('FONT_URL', 'http://localhost:8765');
+Configure::write('FRONT_URL', 'http://localhost:8765');
 Configure::write('ADMIN_URL', 'http://localhost:8765/admin');
 Configure::write('APP_NAME', 'CakePhp3 AF');
 
