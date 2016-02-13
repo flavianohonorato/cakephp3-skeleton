@@ -16,8 +16,8 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 
 ## Configuration
 
-Read and edit `config/app.php` and setup the 'Datasources' and any other.
-Create an extra configuration file in `config/custom_config.php`.
+1. Read and edit `config/app.php` and setup the 'Datasources' and any other.
+2. Edit to your settings the file located in: `config/custom_config.php`.
 
 
 
