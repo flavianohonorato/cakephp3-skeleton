@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# CakePHP Application Skeleton
+
+# CakePHP Application Skeleton - (Admin and Front)
 
 [![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
 [![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
@@ -24,8 +24,4 @@ the setup traffic lights.
 ## Configuration
 
 Read and edit `config/app.php` and setup the 'Datasources' and any other
-configuration relevant for your application.
-=======
-# cakephp3-skeleton
-Cake php 3.2 Skeleton (Admin and Front)
->>>>>>> 5f8d6fcb3f32090f1e0252d9a4b5b043a1bcad71
+
