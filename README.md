@@ -10,18 +10,14 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 
 ## Installation
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+1. Clone the repository: `(git clone https://github.com/flavianohonorato/cakephp3-skeleton)`.
+2. Run `composer install` to install the dependencies.
 
-If Composer is installed globally, run
-```bash
-composer create-project --prefer-dist cakephp/app [app_name]
-```
-
-You should now be able to visit the path to where you installed the app and see
-the setup traffic lights.
 
 ## Configuration
 
-Read and edit `config/app.php` and setup the 'Datasources' and any other
+Read and edit `config/app.php` and setup the 'Datasources' and any other.
+Create an extra configuration file in `config/custom_config.php`.
+
+
 
