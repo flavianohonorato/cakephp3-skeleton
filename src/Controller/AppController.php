@@ -1,19 +1,8 @@
 <?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link      http://cakephp.org CakePHP(tm) Project
- * @since     0.2.9
- * @license   http://www.opensource.org/licenses/mit-license.php MIT License
- */
+
 namespace App\Controller;
 
+use App\Controller\Admin\Users;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 
@@ -43,20 +32,51 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authError' =>  'Você deve estar logado para ter acesso a esta página.',
+
+            'authorize' => ['Controller'],
+
+            'loginRedirect' => [
+                'controller' => 'Dashboard',
+                'action' => 'index'
+            ],
+
+            'unauthorizeRedirect' => [
+                'controller' => 'Home',
+                'action' => 'index',
+                'prefix' => false
+            ],
+
+            'logoutRedirect' => [
+                'prefix' => 'admin',
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login',
+                'prefix' => 'admin'
+            ]
+        ]);
+        $this->set('current_user', $this->Auth->user());
     }
 
-    /**
-     * Before render callback.
-     *
-     * @param \Cake\Event\Event $event The beforeRender event.
-     * @return void
-     */
-    public function beforeRender(Event $event)
+
+    public function isAuthorized($user)
     {
-        if (!array_key_exists('_serialize', $this->viewVars) &&
-            in_array($this->response->type(), ['application/json', 'application/xml'])
-        ) {
-            $this->set('_serialize', true);
+        // Admin can access every action
+        if (isset($user['perfil']) && $user['perfil'] === 'admin' || $user['perfil'] === 'user') {
+            return true;
         }
+
+        // Default deny
+        return false;
+    }
+
+    public function beforeFilter(Event $event)
+    {
+         //$this->Auth->allow();
     }
 }
