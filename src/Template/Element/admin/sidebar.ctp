@@ -4,7 +4,7 @@
   <?php $user = $this->request->session()->read('Auth.User'); ?>
   <div class="user-panel">
     <div class="pull-left image">
-      <img src="<?= Configure::read('ADMIN_URL'); ?>/img/admin/avatar.png" alt="<?php echo $user['first_name'] . ' ' . $user['last_name']; ?>" class="img-circle">
+        <img src="<?= Configure::read('FRONT_URL'); ?>/img/admin/avatar.png" alt="<?php echo $user['first_name'] . ' ' . $user['last_name']; ?>" class="img-circle">
     </div>
     <div class="pull-left info">
       <p><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></p>

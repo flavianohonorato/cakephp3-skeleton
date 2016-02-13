@@ -25,7 +25,7 @@
         </a>
         <ul class="dropdown-menu">
           <li class="user-header">
-              <img src="<?= Configure::read('ADMIN_URL'); ?>/img/admin/avatar.png" alt="<?php echo $user['first_name'] . ' ' . $user['last_name']; ?>" class="img-circle">
+              <img src="<?= Configure::read('FRONT_URL'); ?>/img/admin/avatar.png" alt="<?php echo $user['first_name'] . ' ' . $user['last_name']; ?>" class="img-circle">
             <p>
               <?php echo $user['first_name'] . ' ' . $user['last_name']; ?>
               <?php echo $user['email']; ?>
