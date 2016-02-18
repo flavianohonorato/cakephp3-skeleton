@@ -14,9 +14,8 @@ class UsersSeed extends AbstractSeed
             'first_name'    => 'Jane',
             'last_name'     => 'Doe',
             'email'         => 'jane@doe.com',
-            'password'      => sha1($faker->password),
-            'password_salt' => sha1('admin'),
-            'created'       => date('Y-m-d H:i:s'),,
+            'password'      => sha1('admin'),
+            'created'       => date('Y-m-d H:i:s'),
             'perfil'        => 'admin'
         ];
 
