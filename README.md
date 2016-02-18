@@ -12,6 +12,7 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 
 1. Clone the repository: `(git clone https://github.com/flavianohonorato/cakephp3-skeleton)`.
 2. Run `composer install` to install the dependencies.
+3. Run `bin/cake migrations migrate` to generate the migration of users table.
 
 
 ## Configuration
@@ -19,5 +20,9 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 1. Read and edit `config/app.php` and setup the 'Datasources' and any other.
 2. Edit to your settings the file located in: `config/custom_config.php`.
 
+## Screenshots
+![Screenshots](https://raw.github.com/flavianohonorato/cakephp3-skeleton/master/login.png)
+![Screenshots](https://raw.github.com/flavianohonorato/cakephp3-skeleton/master/dashboard.png)
+![Screenshots](https://raw.github.com/flavianohonorato/cakephp3-skeleton/master/front.png)
 
 
