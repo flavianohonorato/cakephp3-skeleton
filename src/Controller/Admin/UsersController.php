@@ -96,7 +96,7 @@ class UsersController extends AppController
 
 
     // Deletar
-    public function deletar($id = null)
+    public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
