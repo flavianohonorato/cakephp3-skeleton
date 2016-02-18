@@ -26,9 +26,12 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 ![Screenshots](https://raw.github.com/flavianohonorato/cakephp3-skeleton/master/front.png)
 
 ## Credits
-admin theme: `https://almsaeedstudio.com/preview`
-front theme: `http://startbootstrap.com/template-overviews/agency/`
-login theme `http://codepen.io/Lewitje/pen/BNNJjo`
+> admin theme: `https://almsaeedstudio.com/preview`
+> 
+> front theme: `http://startbootstrap.com/template-overviews/agency/`
+>
+> login theme `http://codepen.io/Lewitje/pen/BNNJjo`
+
 
 
 
