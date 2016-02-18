@@ -19,6 +19,7 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 
 1. Read and edit `config/app.php` and setup the 'Datasources' and any other.
 2. Edit to your settings the file located in: `config/custom_config.php`.
+3. You need to run `bin / cake migrations seed` to perform all seeds or `bin / cake migrations seed - seed UsersSeed` to perform a specific seed.
 
 ## Screenshots
 ![Screenshots](https://raw.github.com/flavianohonorato/cakephp3-skeleton/master/login.png)
