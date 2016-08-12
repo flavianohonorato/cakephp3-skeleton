@@ -7,6 +7,11 @@ use Cake\Event\Event;
 
 class UsersController extends AppController
 {
+	 public function initialize()
+    {
+        parent::initialize();
+        $this->viewBuilder()->layout('admin');
+    }
 
     public function index()
     {
@@ -51,7 +56,6 @@ class UsersController extends AppController
     public function detalhes($id)
     {
         $this->set('title_for_layout', 'Detalhes do Usuário');
-        // $this->viewBuilder()->layout('login');
         $user = $this->Users->get($id);
         $this->set(compact('user'));
     }
@@ -60,7 +64,15 @@ class UsersController extends AppController
     public function adicionar()
     {
         $this->set('title_for_layout', 'Adicionar Usuário');
-        $this->viewBuilder()->layout('admin');
+
+        // lists of the roles
+        $this->loadModel('Roles');
+        $roles = $this->Roles->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'role'
+        ]);
+        $this->set(compact( 'roles'));
+        
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
@@ -70,6 +82,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('Não foi possível adicionar este usuário, por favor tente novamente.'));
         }
+        $roles = $this->Users->Roles->find('list', ['limit' => 200]);
+        $this->set(compact('roles'));
         $this->set('user', $user);
     }
 
@@ -77,7 +91,14 @@ class UsersController extends AppController
     public function editar($id = null)
     {
         $this->set('title_for_layout', 'Editar Usuário');
-        $this->viewBuilder()->layout('admin');
+        
+        $this->loadModel('Roles');
+        $roles = $this->Roles->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'role'
+        ]);
+        $this->set(compact('roles'));
+
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -90,15 +111,19 @@ class UsersController extends AppController
                 $this->Flash->error(__('Eu ao editar usuário. Por favor, tente novamente.'));
             }
         }
-        $this->set(compact('user'));
-        $this->set('_serialize', ['users']);
+        $roles = $this->Users->Roles->find('list', ['limit' => 200]);
+        if (empty($user)) {
+            throw new Exception("Usuário não encontrado");
+        } else {
+            $this->set(compact('user', 'roles'));
+            $this->set('_serialize', ['user']);
+        }
     }
 
 
     // Deletar
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
             $this->Flash->success('Usuário deletado com sucesso.', ['class' => 'alert alert-info']);
