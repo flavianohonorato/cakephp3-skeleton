@@ -14,21 +14,20 @@
     <li><a href="<?= Configure::read('FRONT_URL') ?>" target="blanck">Acessar site</a></li>
       
       <!-- User Account Menu -->
-      <?php $user = $this->request->session()->read('Auth.User'); ?>
       <li class="dropdown user user-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <img class="img-responsive" src="" alt=""> 
           
           <span class="hidden-xs">
-            <?php echo $user['first_name'] . ' ' . $user['last_name']; ?>
+            <?= ucfirst($current_user['name']); ?>
           </span>
         </a>
         <ul class="dropdown-menu">
           <li class="user-header">
-              <img src="<?= Configure::read('FRONT_URL'); ?>/img/admin/avatar.png" alt="<?php echo $user['first_name'] . ' ' . $user['last_name']; ?>" class="img-circle">
+              <img src="<?= Configure::read('FRONT_URL'); ?>/img/admin/avatar.png" alt="<?= $current_user['name']; ?>" class="img-circle">
             <p>
-              <?php echo $user['first_name'] . ' ' . $user['last_name']; ?>
-              <?php echo $user['email']; ?>
+              <?= ucfirst($current_user['name']); ?>
+              <p class="small"><?= $current_user['email']; ?></p>
             </p>
           </li>
 
