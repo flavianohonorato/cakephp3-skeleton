@@ -5,11 +5,11 @@
 </div>
 
 <?= $this->Form->create(); ?>
-	<?= $this->Form->input( 'username', [
+	<?= $this->Form->input( 'email', [
         'label'=> false,
         'class'=>'form-control',
-        'placeholder'=>'Usuário',
-        'type'	=> 'text'
+        'placeholder'=>'email@flaviano.com.br',
+        'type'	=> 'email'
     ]) ?>
 	<?= $this->Form->input( 'password', [
         'label'=> false,

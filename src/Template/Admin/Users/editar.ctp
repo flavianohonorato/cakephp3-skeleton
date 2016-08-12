@@ -29,47 +29,50 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <!-- Nome -->
                             <div class="form-group">
-                                <?= $this->Form->input('first_name', array('class' => 'form-control', 'label' => 'Nome')); ?>
-                            </div><!-- .form-group -->
+		                        <?= $this->Form->input('name', ['class' =>  'form-control', 'type' => 'text', 'Placeholder' => 'Nome Completo']) ?>
+		                    </div><!-- .form-group -->
                         </div>
-
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <!-- Sobrenome -->
-                            <div class="form-group">
-                                <?= $this->Form->input('last_name', array('class' => 'form-control', 'label' => 'Sobrenome')); ?>
-                            </div><!-- .form-group -->
-                        </div>
-
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <!-- Email -->
                             <div class="form-group">
                                 <?= $this->Form->input('email', array('class' => 'form-control', 'label' => 'Email')); ?>
                             </div><!-- .form-group -->
                         </div>
 
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <!-- Username -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <?= $this->Form->input('username', array('class' => 'form-control', 'label' => 'Nome de Usuário', 'placeholder' => 'ex: fulanodetal')); ?>
+                                <?= $this->Form->input('password', array('class' => 'form-control', 'label' => 'Senha', 'value' => false)); ?>
                             </div><!-- .form-group -->
                         </div>
 
+                        <!--Prfil -->
+		                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+		                    <div class="form-group">
+		                        <?php
+		                        echo $this->Form->input('role_id', [
+		                            'class' => 'form-control',
+		                            'label' => 'Perfil',
+		                            'empty' => 'Escolha um perfil'
+		                        ],
+		                            [ 'options' => $roles]
+		                        ); ?>
+		                    </div><!-- .form-group -->
+		                </div>
 
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <div class="form-group">
-                                <?= $this->Form->input('perfil', array(
-                                    'class' => 'form-control',
-                                    'label' => 'Perfil',
-                                    'empty' => 'Perfil de usuário',
-                                    'options' => array(
-                                        'admin' => 'Admistrador',
-                                        'user' => 'Usuário'
-                                    ),
-                                    'type' => 'select'
-                                )); ?>
-                            </div><!-- .form-group -->
-                        </div>
+
+		                <!--Status -->
+		                <div class="col-md-1">
+		                    <div class="form-group">
+		                        <label>Status</label>
+		                        <br>
+		                        <?= $this->Form->checkbox('status', [
+		                            'type' => 'checkbox',
+		                            'default' => 1
+		                        ]); ?>
+		                    </div>
+		                </div>
 
 
                     </div>

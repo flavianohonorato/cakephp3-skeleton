@@ -33,10 +33,8 @@
                         <thead>
                         <tr>
                             <th><?= $this->Paginator->sort('id') ?></th>
-                            <th><?= $this->Paginator->sort('username', __('Username')); ?></th>
-                            <th><?= $this->Paginator->sort('first_name', __('Nome')); ?></th>
+                            <th><?= $this->Paginator->sort('name', __('Nome')); ?></th>
                             <th><?= $this->Paginator->sort('email', __('Email')); ?></th>
-                            <th><?= $this->Paginator->sort('perfil', __('Perfil')); ?></th>
                             <th><?= $this->Paginator->sort('created', __('Criado em')); ?></th>
                             <th class="text-center"><?= __('Ações') ?></th>
                         </tr>
@@ -46,16 +44,23 @@
                         <?php foreach ($users as $user): ?>
                             <tr>
                                 <td><?= $this->Number->format($user->id) ?></td>
-                                <td><?= h($user->username) ?></td>
-                                <td><?= h($user->first_name) ?></td>
+                                <td><?= h($user->name) ?></td>
                                 <td><?= h($user->email) ?></td>
-                                <td><?= h($user->perfil) ?></td>
                                 <td><?= $this->Time->format($user->created,'dd-MM-YYYY',null);?></td>
                                 <td class="text-center">
-                                    <?= $this->Html->link(__('Detalhes'), ['action' => 'detalhes', $user->id], ['class' => 'btn btn-info btn-flat btn-xs']) ?>
-                                    <?= $this->Html->link(__('Editar'), ['action' => 'editar', $user->id], ['class' => 'btn btn-primary btn-flat btn-xs']) ?>
-                                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $user->id],
-                                        ['confirm' => __('Tem certeza ue quer apagar este registro?', $user->id), 'class' => 'btn btn-sm btn-danger btn-flat btn-xs']); ?>
+                                    <a href="<?= Configure::read('ADMIN_URL'); ?>/users/detalhes/<?= $user->id; ?>" class="btn btn-success btn-flat btn-sm">
+		                                <i class="fa fa-eye fa-lg"></i>
+		                            </a>
+		                            <a href="<?= Configure::read('ADMIN_URL'); ?>/users/editar/<?= $user->id; ?>" class="btn btn-info btn-flat btn-sm">
+		                                <i class="fa fa-pencil fa-lg"></i>
+		                            </a>
+		                            <?php
+		                            echo $this->Html->link(
+		                                "Del",
+		                                "#",
+		                                array("class"=>"btn btn-danger delete-btn btn-flat btn-sm", "data-id"=>$user->id)
+		                            );
+		                            ?>
                                 </td>
                             </tr>
 
@@ -87,3 +92,27 @@
     </div><!-- row -->
 
 </section><!-- /.content -->
+<a data-target="#ConfirmDelete" role="button" data-toggle="modal" id="trigger"></a>
+<div class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Deletar Registro</h4>
+            </div>
+            <div class="modal-body">
+                Deseja realmente apagar este registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat pull-left btn-lg" data-dismiss="modal">Cancelar</button>
+                <div id="ajax_button"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".delete-btn").click(function(){
+        $("#ajax_button").html("<a href='/admin/users/delete/"+ $(this).attr("data-id")+"' class='btn btn-danger btn-flat btn-lg'>Confirmar</a>");
+        $("#trigger").click();
+    });
+</script>

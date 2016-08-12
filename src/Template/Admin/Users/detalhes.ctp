@@ -22,16 +22,6 @@
                 </div>
 
                 <div class="box-body">
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-flat btn-app dropdown-toggle" data-toggle="dropdown" role="button">
-                            <?php echo __('Ações'); ?> <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><?= $this->Html->link(__('Editar'), ['action' => 'editar', $user->id]) ?> </li>
-                            <li><?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-                        </ul>
-                    </div><!-- btn-group-->
                     <a href="<?= Configure::read('ADMIN_URL');?>/users" class="btn btn-app btn-flat"><i class="fa fa-folder"></i> Usuários</a>
                     <a href="<?= Configure::read('ADMIN_URL');?>/users/adicionar" class="btn btn-app btn-flat"><i class="fa fa-plus-circle"></i> Adicionar</a>
                 </div><!-- /.box-body -->
@@ -64,12 +54,12 @@
 
                                 <tr>
                                     <td><strong><?= __('Usuário') ?></strong></td>
-                                    <td><?= h($user->username) ?></td>
+                                    <td><?= h($user->name) ?></td>
                                 </tr>
 
                                 <tr>
-                                    <td><strong><?= __('Perfil') ?></strong></td>
-                                    <td><?= h($user->perfil) ?></td>
+                                    <td><strong><?= __('Email') ?></strong></td>
+                                    <td><?= h($user->email) ?></td>
                                 </tr>
 
                             </tbody>
