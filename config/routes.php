@@ -30,6 +30,14 @@ Router::prefix('admin', function ($routes) {
     $routes->connect('/login', array('controller' => 'Users', 'action' => 'login'));
     $routes->connect('/logout', array('controller' => 'Users', 'action' => 'logout'));
 
+    // Roles
+    $routes->connect('/perfil', ['controller' => 'Roles', 'action' => 'index']);
+    $routes->connect('/perfil/detalhes', ['controller' => 'Roles', 'action' => 'detalhes']);
+    $routes->connect('/perfil/adicionar', ['controller' => 'Roles', 'action' => 'adicionar']);
+    $routes->connect('/perfil/editar/*', ['controller' => 'Roles', 'action' => 'editar']);
+    $routes->connect('/perfil/delete/*', ['controller' => 'Roles', 'action' => 'delete']);
+
+
     $routes->fallbacks('InflectedRoute');
 });
 
