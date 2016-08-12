@@ -16,14 +16,13 @@ class UsersSeed extends AbstractSeed
     public function run()
     {
         $data = [
-            'username'      => 'flaviano',
-            'first_name'    => 'Flaviano',
-            'last_name'     => 'Honorato',
+            'name'      => 'flaviano',
             'email'         => 'contato@flaviano.com.br',
-            'password'      => (new DefaultPasswordHasher)->hash('admin'),
-            'created'       => date('Y-m-d H:i:s'),
+            'password'      => (new DefaultPasswordHasher)->hash('administrator102030'),
+            'status'        => 1, //active status
+            'role_id'       => 1, //admin role
             'modified'      => date('Y-m-d H:i:s'),
-            'perfil'        => 'admin'
+            'created'       => date('Y-m-d H:i:s'),
         ];
 
         $table = $this->table('users');
