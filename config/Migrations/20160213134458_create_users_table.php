@@ -28,15 +28,43 @@ class CreateUsersTable extends AbstractMigration
     public function up()
     {
         $table = $this->table('users');
-        $table->addColumn('username', 'string')
-            ->addColumn('first_name', 'string')
-            ->addColumn('last_name', 'string')
-            ->addColumn('email', 'string')
-            ->addColumn('password', 'string')
-            ->addColumn('perfil', 'string')
-            ->addColumn('created', 'datetime')
-            ->addColumn('modified', 'datetime')
-            ->create();
+        $table->addColumn('name', 'string', [
+            'default'   => null,
+            'limit'     => 255,
+            'null'      => false,
+        ]);
+
+        $table->addColumn('email','string', [
+            'default'   => null,
+            'limit'     => 150,
+            'null'      => false,
+        ]) ->addIndex(['email'], ['unique' => true]);
+
+        $table->addColumn('status', 'integer', ['default' => 1]);
+
+        $table->addColumn('password', 'string', [
+            'default'   => null,
+            'limit'     => 255,
+            'null'      => false,
+        ]);
+
+        $table->addColumn('role_id', 'integer', [
+            'default'   => null,
+            'limit'     => 11,
+            'null'      => false,
+        ]);
+        $table->addColumn('created', 'timestamp', [
+            'default'   => null,
+            'limit'     => null,
+            'null'      => true,
+        ]);
+        $table->addColumn('modified', 'timestamp', [
+            'default'   => null,
+            'limit'     => null,
+            'null'      => true,
+        ]);
+
+        $table->create();
     }
 
     public function down()
