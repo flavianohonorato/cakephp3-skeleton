@@ -4232,6 +4232,7 @@ table.text-center th {
 .label-success,
 .modal-success .modal-body {
   background-color: #00a65a !important;
+  border-radius: 0;
 }
 .bg-navy {
   background-color: #001f3f !important;

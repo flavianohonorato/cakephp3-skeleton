@@ -30,9 +30,8 @@
 
 
     <?= $this->Html->script([
-        '../vendor/jQuery/jQuery-2.1.4.min',
+        'jQuery-2.1.4.min',
         'bootstrap.min',
-        '../vendor/ckeditor/ckeditor'
     ]) ?>
 
 </head>
